@@ -15,7 +15,7 @@ Foundation now maintains the project </p>
 
 ### *Install kubernetes Nginx Ingress Controller using Helm 
 
-## second Step 
+## Second Step 
 
 ### *How to create secret
 
