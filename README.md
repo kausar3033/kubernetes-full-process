@@ -40,21 +40,22 @@ Foundation now maintains the project </p>
 	helm -n staging  repo update
 	
 	kubectl get node
-	kubectl get all 
-	kubectl get pods -n ingress-nginx	
-	kubectl get namespaces
 	kubectl get ns
+	kubectl get namespaces
 	
+	kubectl get pods
 	kubectl -n staging get pod
-	kubectl -n staging get ingressclass -o wide
-	kubectl -n staging get ingressclass
+	kubectl -n staging get all
+	kubectl -n staging get svc
 	kubectl -n staging describe pod
-	kubectl -n staging get configmap
+	kubectl get pods --all-namespaces
+	kubectl get pods --namespace staging
+	
+	kubectl -n staging get ingressclass
+	kubectl -n staging get ingressclass -o wide
+	
 	kubectl -n metallb-system describe configmap config
 	kubectl -n metallb-system get  configmap config -o yaml
 	kubectl -n metallb-system describe configmap config
-	kubectl -n staging get svc
-	kubectl -n staging get all
-	kubectl get pods --all-namespaces
-	kubectl get pods --namespace staging
+
 	
