@@ -5,15 +5,16 @@ Foundation now maintains the project </p>
 
 ## First Step:
 
-### *How to install kubernetes master node 
+### <a href="https://github.com/kausar3033/kubernetes-full_process/tree/main/kubernetes">*How to install kubernetes master node </a>
 
-### *How to install kubernetes worker node 
+### <a href="https://github.com/kausar3033/kubernetes-full_process/tree/main/kubernetes">*How to install kubernetes worker node </a>
 
-### *How to install MetalLLB for Loadbnlancing 
+### <a href="https://github.com/kausar3033/kubernetes-full_process/tree/main/MetaLLB_Load_blancer">*How to install MetalLLB for Loadbnlancing  </a>
 
-### *How to install Helm
+### <a href="https://github.com/kausar3033/kubernetes-full_process/tree/main/Helm%20Install">*How to install Helm </a>
 
-### *Install kubernetes Nginx Ingress Controller using Helm 
+### <a href="[url](https://github.com/kausar3033/kubernetes-full_process/tree/main/Kubernetes%20Nginx%20Ingress%20Controller%20using%20Helm)">*Install kubernetes Nginx Ingress Controller using Helm </a>
+
 
 ## Second Step 
 
