@@ -1,4 +1,4 @@
-## Welcoem to iBOS DevOps Team.
+## Welcoem to kausar3033.
 
 #Prerequisites
 ## linux (Ubunto 20.4.4 LTS
@@ -109,5 +109,5 @@ kubeadm join 10.209.99.220:6443 --token yn0e71.7fy4apmhg060nuxp \
     sudo systemctl enable docker.service
     sudo swapoff -a
 
-# Happy kubernatis ---- enjoy---
+# Happy kubernatis ---!!
  
