@@ -9,7 +9,7 @@
 #### If want to add in specific namespace (staging)
 	helm -n staging install ibosio-ingress nginx-stable/nginx-ingress --set controller.service.type=LoadBalancer,controller.ingressClass=ibosio-ingress
 
-## [ #Start Example
+## [ Start Example
 #### Default controller service 
 	helm install ibosio-ingress nginx-stable/nginx-ingress --set controller.service.type=LoadBalancer
 	
