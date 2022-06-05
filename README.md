@@ -58,5 +58,12 @@ Foundation now maintains the project </p>
 	kubectl -n metallb-system describe configmap config
 	kubectl -n metallb-system get  configmap config -o yaml
 	kubectl -n metallb-system describe configmap config
+	
+	
+![image](https://user-images.githubusercontent.com/43438240/172047801-2d4e8dde-edae-499a-a12c-f7d12b911e00.png)
+
+## If somehow we need to reset full system for reconfiguration then execute the shell Remove.sh
+#### Don't execute the shell without understand [ Dangrous ]
+	remove.sh 
 
 	
