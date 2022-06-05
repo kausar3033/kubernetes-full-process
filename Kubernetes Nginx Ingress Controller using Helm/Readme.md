@@ -5,7 +5,11 @@
 	kubectl get ns
 	
 ### Create namespace if needed
-	kubectl create namespace staging		
+	
+	kubectl create namespace staging	
+	
+	kubectl run nginx --image=nginx --namespace=staging
+	kubectl config set-context --current --namespace=staging
 		
 ### Now deploy Nginx Ingress Controller service using the following commands
 
