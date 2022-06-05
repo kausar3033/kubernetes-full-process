@@ -1,6 +1,9 @@
 ## Install Nginx 
 	apt-get install nginx 
 	
+### Check Namespace 
+	kubectl get ns
+	
 ### Create namespace if needed
 	kubectl create namespace staging		
 		
