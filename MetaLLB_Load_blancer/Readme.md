@@ -3,13 +3,15 @@
 #### Load balancers can be used for exposing applications to the external network. Load balancer provides a single IP address to route incoming requests to your app. In order to successfully create Kubernetes services of type LoadBalancer, you need to have the load balancer (implementation) available for Kubernetes.
 
 ## Install MetalLB
+    
+    kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.12.1/manifests/namespace.yaml
+    kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.12.1/manifests/metallb.yaml
 
-    kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/namespace.yaml
     
     
 ## Create ConfigMap for MetalLB
 
-#### Create a YAML file accordingly, and deploy it: kubectl apply -f metallb-configmap.yaml
+#### Create a YAML file accordingly, and deploy it: 
 
     
     apiVersion: v1
@@ -25,4 +27,7 @@
           addresses:
           - <ip-address-range-start>-<ip-address-range-stop>
           
- ## You can assing single ip or can assign ar ipm range
+## Execute 
+    kubectl apply -f metallb-configmap.yaml
+          
+ ## You can assing single ip or can assign ip range
