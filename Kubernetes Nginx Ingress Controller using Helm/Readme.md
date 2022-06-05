@@ -8,16 +8,16 @@
 
 #### If want to add in specific namespace (staging)
 	helm -n staging install ibosio-ingress nginx-stable/nginx-ingress --set controller.service.type=LoadBalancer,controller.ingressClass=ibosio-ingress
-# Start Example:
-# [	
+## Start Example:
+## [	
 #### Default controller service 
 	helm install ibosio-ingress nginx-stable/nginx-ingress --set controller.service.type=LoadBalancer
 	
 ### If want to create multiple ingress use this comman with new ingress name
 	helm install ibosio-ingress nginx-stable/nginx-ingress --set controller.service.type=LoadBalancer,controller.ingressClass=ibosio-ingress
 	
-# ]
-#End Example
+## ]
+## End Example
 
 ### Check status of all resources iningress-nginx namespace:
 	kubectl -n staging get all 	
