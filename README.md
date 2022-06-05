@@ -61,7 +61,7 @@ Foundation now maintains the project </p>
 	
 	
 
-<img src="https://user-images.githubusercontent.com/43438240/172047801-2d4e8dde-edae-499a-a12c-f7d12b911e00.png" width="300" height="200" />
+<img src="https://user-images.githubusercontent.com/43438240/172047801-2d4e8dde-edae-499a-a12c-f7d12b911e00.png" width="200" height="100" />
 
 ## If somehow we need to reset full system for reconfiguration then execute the shell Remove.sh
 #### Don't execute the shell without understand [ Dangrous ]
