@@ -31,3 +31,30 @@ Foundation now maintains the project </p>
 # Create ingress rules and execute 
 #### Create a yaml file like ibos_ingress.yaml and write configuration rules and save it
     kubectl -n staging apply -f ibos_ingress.yaml
+    
+## Basic Command 
+	helm version
+	helm list
+	helm -n staging  list
+	helm -n staging  repo list
+	helm -n staging  repo update
+	
+	kubectl get node
+	kubectl get all 
+	kubectl get pods -n ingress-nginx	
+	kubectl get namespaces
+	kubectl get ns
+	
+	kubectl -n staging get pod
+	kubectl -n staging get ingressclass -o wide
+	kubectl -n staging get ingressclass
+	kubectl -n staging describe pod
+	kubectl -n staging get configmap
+	kubectl -n metallb-system describe configmap config
+	kubectl -n metallb-system get  configmap config -o yaml
+	kubectl -n metallb-system describe configmap config
+	kubectl -n staging get svc
+	kubectl -n staging get all
+	kubectl get pods --all-namespaces
+	kubectl get pods --namespace staging
+	
