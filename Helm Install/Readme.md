@@ -10,3 +10,12 @@
 		sudo apt-get update
 
 		sudo apt-get install helm
+		
+		helm -n staging repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+		
+		helm -n staging repo add  stable https://charts.helm.sh/stable
+		
+		helm repo add nginx-stable https://helm.nginx.com/stable
+		
+		helm -n staging  repo update
+		
