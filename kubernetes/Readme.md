@@ -14,7 +14,7 @@
 #### Go to root user home directory  by using the command 
     sudo su 
 
-#### FOR EASY Installation we have create the sh file. Just clone the git repo in master node by run the command
+#### FOR EASY Installation we sh file. Just clone the git repo in master node by run the command
 
     git clone https://github.com/kausar3033/kubernetes-full_process.git
     
