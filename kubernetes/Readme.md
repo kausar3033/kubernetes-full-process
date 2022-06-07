@@ -6,22 +6,25 @@
 
 ### Installation Guide Kubernetes A to Z
 
-### For Master Node
+## For Master Node
 ### Install Docker,kubeadm,kubelet,kubectl,Openssh,Nginx,jare,Edit etc/fstab >> swap memory mount location
 
 #### First we will work on master node and then we will creat the worker node
 
+#### Go to root user home directory  by using the command 
+    sudo su 
+
 #### FOR EASY Installation we have create the sh file. Just clone the git repo in master node by run the command
 
-    git clone https://github.com/naimul3070/kubernatis.git
+    git clone https://github.com/kausar3033/kubernetes-full_process.git
     
-### Get into the clone folde by run the command 
+### check list
 
     ls
     
-### and
+### Change the directory to kubernetes
     
-    cd kubernatis/
+    cd kubernetes-full-process/kubernetes
     
 #### give permisson the .sh file by run the command in (nust first move to the directory)
 
@@ -32,11 +35,7 @@
      
     sudo apt update
     sudo apt upgrade -y
-    ./master.sh
-
-#### Go to root  by using the command and check the node
-
-    sudo su -
+    sh master.sh
 
 #### Check the node is ready or not
 
@@ -55,29 +54,32 @@ kubeadm join 10.209.99.220:6443 --token yn0e71.7fy4apmhg060nuxp \
 
 ## For Worker Node 
 
-### FOR EASY Installation we have create the sh file. just clone the repo using the git comand 
+#### Go to root user home directory  by using the command 
+    sudo su 
 
-    git clone https://github.com/naimul3070/kubernatis.git
+#### FOR EASY Installation we have create the sh file. Just clone the git repo in master node by run the command
+
+    git clone https://github.com/kausar3033/kubernetes-full_process.git
     
-
-### Get into the clone folde by run the command 
+### check list
 
     ls
     
-### and
+### Change the directory to kubernetes
     
-    cd kubernatis/
+    cd kubernetes-full-process/kubernetes
     
 #### give permisson the .sh file by run the command in (nust first move to the directory)
 
     chmod +x worker.sh
- 
+    
+
 #### Then run the .sh file for install the master node 
      
     sudo apt update
     sudo apt upgrade -y
-    ./worker.sh
-
+    sh master.sh
+    
 ### If this is the first worker node then just follow the instracton in  ### 1st worker block and
 
 #### Check in master node by the command 
@@ -109,5 +111,5 @@ kubeadm join 10.209.99.220:6443 --token yn0e71.7fy4apmhg060nuxp \
     sudo systemctl enable docker.service
     sudo swapoff -a
 
-# Happy kubernatis ---!!
+# Happy kubernatis 
  
