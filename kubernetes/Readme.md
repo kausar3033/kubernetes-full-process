@@ -59,7 +59,7 @@ kubeadm join 10.209.99.220:6443 --token yn0e71.7fy4apmhg060nuxp \
 
 #### FOR EASY Installation we have create the sh file. Just clone the git repo in master node by run the command
 
-    git clone https://github.com/kausar3033/kubernetes-full_process.git
+    git clone https://github.com/kausar3033/kubernetes-full-process.git
     
 ### check list
 
