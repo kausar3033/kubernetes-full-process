@@ -11,7 +11,7 @@
     
 ## Create ConfigMap for MetalLB
 
-#### Create a YAML file accordingly, and deploy it: 
+#### Create a YAML file accordingly, and deploy it: vim metallb-configmap.yaml
 
     
     apiVersion: v1
