@@ -11,8 +11,9 @@
     
 ## Create ConfigMap for MetalLB
 
-#### Create a YAML file accordingly, and deploy it: vim metallb-configmap.yaml
-
+#### Create a YAML file accordingly, and deploy it: 
+    vim metallb-configmap.yaml
+### Past sctipt in metallb-configmap.yaml 
     
     apiVersion: v1
     kind: ConfigMap
