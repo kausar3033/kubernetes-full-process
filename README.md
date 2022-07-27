@@ -5,9 +5,9 @@ Foundation now maintains the project </p>
 
 ## First Step:
 
-### *How to install kubernetes master node 
+### <a href="https://github.com/kausar3033/kubernetes-full-process/tree/main/kubernetes">*How to install kubernetes master node</a> 
 
-### *How to install kubernetes worker node 
+### <a href="https://github.com/kausar3033/kubernetes-full-process/tree/main/kubernetes"">*How to install kubernetes worker node </a>
 
 ### *How to install MetalLLB for Loadbnlancing 
 
