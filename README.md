@@ -66,5 +66,10 @@ Foundation now maintains the project </p>
 ## If somehow we need to reset full system for reconfiguration then execute the shell Remove.sh
 #### Don't execute the shell without understand [ Dangrous ]
 	remove.sh 
+	
+#### FOR EASY to remove all  we have sh file. Just run the command
+
+     cd kubernetes-full-process/&&chmod +x remove.sh&&./remove.sh
+
 
 	
