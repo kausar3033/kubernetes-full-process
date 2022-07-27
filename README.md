@@ -27,7 +27,7 @@ Foundation now maintains the project </p>
 ## Create Secret
 ### If want to add ssl/tls 
 #### upload cert.pem and private_key.pem file in your /home/user directory then execute the command 
-	kubectl  create secret tls ibosio-ingress-tls --key private_key.pem --cert cert.pem
+	kubectl staging create secret tls ibosio-ingress-tls --key private_key.pem --cert cert.pem
 
 ## Create ingress rules and execute 
 #### Create a yaml file like ibos_ingress.yaml and write configuration rules and save it
