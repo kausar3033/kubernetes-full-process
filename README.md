@@ -5,21 +5,21 @@ Foundation now maintains the project </p>
 
 ## First Step:
 
-### <a href="https://github.com/kausar3033/kubernetes-full-process/tree/main/kubernetes">*How to install kubernetes master node</a> 
+### <a href="https://github.com/kausar3033/kubernetes-full-process/tree/main/kubernetes">*How to install kubernetes master node(kubernetes)</a> 
 
-### <a href="https://github.com/kausar3033/kubernetes-full-process/tree/main/kubernetes">*How to install kubernetes worker node </a>
+### <a href="https://github.com/kausar3033/kubernetes-full-process/tree/main/kubernetes">*How to install kubernetes worker node (kubernetes)</a>
 
-### <a href="https://github.com/kausar3033/kubernetes-full-process/tree/main/MetaLLB_Load_blancer">*How to install MetalLLB for Loadbnlancing </a>
+### <a href="https://github.com/kausar3033/kubernetes-full-process/tree/main/MetaLLB_Load_blancer">*How to install MetalLLB for Loadbnlancing(MetaLLB_Load_blancer) </a>
 
-### <a href="https://github.com/kausar3033/kubernetes-full-process/tree/main/Helm%20Install">*How to install Helm </a>
+### <a href="https://github.com/kausar3033/kubernetes-full-process/tree/main/Helm%20Install">*How to install Helm (Helm Install) </a>
 
-### <a href="https://github.com/kausar3033/kubernetes-full-process/tree/main/Kubernetes%20Nginx%20Ingress%20Controller%20using%20Helm">*Install kubernetes Nginx Ingress Controller using Helm </a> n
+### <a href="https://github.com/kausar3033/kubernetes-full-process/tree/main/Kubernetes%20Nginx%20Ingress%20Controller%20using%20Helm">*Install kubernetes Nginx Ingress Controller using Helm (Kubernetes Nginx Ingress Controller using Helm)</a> n
 
 ## Second Step 
 
-### *How to create secret
+### *How to create secret (below the process >>> # Create Secret ) 
 
-### *How to create ingress rules and execute it
+### *How to create ingress rules and execute it (below the process >>> # Create ingress rules and execute )
 
 # Create Secret
 ### If want to add ssl/tls 
