@@ -16,7 +16,10 @@
 
 #### FOR EASY Installation we have sh file. Just clone the git repo in master node by run the command
 
-    https://github.com/kausar3033/kubernetes-full-process.git
+  https://github.com/kausar3033/kubernetes-full-process/tree/main/kubernetes&&cd kubernetes/&&chmod +x master.sh&&./master.sh
+  
+  https://github.com/kausar3033/kubernetes-full-process/tree/main/kubernetes&&cd kubernetes/&&chmod +x worker.sh&&./worker.sh
+
     
 ### check list
 
