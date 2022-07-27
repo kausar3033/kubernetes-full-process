@@ -13,7 +13,7 @@ Foundation now maintains the project </p>
 
 ### <a href="https://github.com/kausar3033/kubernetes-full-process/tree/main/Helm%20Install">*How to install Helm (Helm Install) </a>
 
-### <a href="https://github.com/kausar3033/kubernetes-full-process/tree/main/Kubernetes%20Nginx%20Ingress%20Controller%20using%20Helm">*Install kubernetes Nginx Ingress Controller using Helm (Kubernetes Nginx Ingress Controller using Helm)</a> n
+### <a href="https://github.com/kausar3033/kubernetes-full-process/tree/main/Kubernetes%20Nginx%20Ingress%20Controller%20using%20Helm">*How to Install kubernetes Nginx Ingress Controller using Helm (Kubernetes Nginx Ingress Controller using Helm)</a> n
 
 ## Second Step 
 
