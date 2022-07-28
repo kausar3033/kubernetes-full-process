@@ -5,15 +5,15 @@ Foundation now maintains the project </p>
 
 ## First Step:
 
-### <a href="https://github.com/kausar3033/kubernetes-full-process/tree/main/kubernetes">*How to install kubernetes master node(kubernetes)</a> 
+### <a href="https://github.com/ibosbd/devops/tree/main/kubernetes-full-process/Kubernetes">*How to install kubernetes master node(kubernetes)</a> 
 
-### <a href="https://github.com/kausar3033/kubernetes-full-process/tree/main/kubernetes">*How to install kubernetes worker node (kubernetes)</a>
+### <a href="https://github.com/ibosbd/devops/tree/main/kubernetes-full-process/Kubernetes">*How to install kubernetes worker node (kubernetes)</a>
 
-### <a href="https://github.com/kausar3033/kubernetes-full-process/tree/main/MetaLLB_Load_blancer">*How to install MetalLLB for Loadbnlancing(MetaLLB_Load_blancer) </a>
+### <a href="https://github.com/ibosbd/devops/tree/main/kubernetes-full-process/MetalLB_Load_Balancer">*How to install MetalLLB for Loadbnlancing(MetaLLB_Load_blancer) </a>
 
-### <a href="https://github.com/kausar3033/kubernetes-full-process/tree/main/Helm%20Install">*How to install Helm (Helm Install) </a>
+### <a href="https://github.com/ibosbd/devops/tree/main/kubernetes-full-process/Install%20Helm">*How to install Helm (Helm Install) </a>
 
-### <a href="https://github.com/kausar3033/kubernetes-full-process/tree/main/Kubernetes%20Nginx%20Ingress%20Controller%20using%20Helm">*How to Install kubernetes Nginx Ingress Controller using Helm (Kubernetes Nginx Ingress Controller using Helm)</a> 
+### <a href="https://github.com/ibosbd/devops/tree/main/kubernetes-full-process/Install%20Kubernetes%20Nginx%20Ingress%20Controller%20using%20Helm">*How to Install kubernetes Nginx Ingress Controller using Helm (Kubernetes Nginx Ingress Controller using Helm)</a>
 
 ## Second Step 
 
@@ -21,23 +21,34 @@ Foundation now maintains the project </p>
 
 ### *How to create ingress rules and execute it (below the process >>> # Create ingress rules and execute )
 
+
 # Create Secret
 ### If want to add ssl/tls 
 #### upload cert.pem and private_key.pem file in your /home/user directory then execute the command 
-	kubectl  staging create secret tls ibosio-ingress-tls --key private_key.pem --cert cert.pem
+	kubectl -n staging create secret tls ibosio-ingress-tls --key private_key.pem --cert cert.pem
 
 # Create ingress rules and execute 
 #### Create a yaml file like ibos_ingress.yaml and write configuration rules and save it
     kubectl -n staging apply -f ibos_ingress.yaml
- 
+    
+# For expose to azure with public ip
+    rm /etc/kubernetes/pki/apiserver.*
+    kubectl -n staging create secret docker-registry dockercred --docker-server=https://index.docker.io --docker-username=xxxx --docker-password=xxxxx --docker- email=xxxx@gmail.com
+    docker rm `docker ps -q -f 'name=k8s_kube-apiserver*'`
+    
+# kubernates secret token 
+    kubectl config view --raw
+    
 	
 ## Basic Command 
+	
 	helm version
 	helm list
 	helm -n staging  list
 	helm -n staging  repo list
 	helm -n staging  repo update
 	
+	kubectl delete node
 	kubectl get node
 	kubectl get ns
 	kubectl get namespaces
