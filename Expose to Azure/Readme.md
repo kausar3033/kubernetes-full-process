@@ -1,3 +1,7 @@
+### kubernates secret token to join with Azure (add the trusted key )
+
+    kubectl config view --raw
+
 ## For expose to azure with public ip
 
     rm /etc/kubernetes/pki/apiserver.*
