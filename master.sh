@@ -27,7 +27,7 @@ systemctl daemon-reload
 systemctl restart docker
 
 apt-get install -y apt-transport-https
-apt-get install kubelet kubeadm kubectl
+apt-get install -qy kubelet=1.25.3-00 kubeadm=1.25.3-00 kubectl=1.25.3-00
 
 apt-mark hold docker.io kubelet kubeadm kubectl
 
