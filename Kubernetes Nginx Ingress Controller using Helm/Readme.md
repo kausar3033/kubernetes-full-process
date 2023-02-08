@@ -1,4 +1,4 @@
-## Install Nginx 
+## Install Nginx (optional)
 	apt-get install nginx 
 	
 ### Check Namespace 
