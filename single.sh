@@ -222,7 +222,7 @@ sshpass -p "ibos@123" sftp -o StrictHostKeyChecking=no ibos@10.209.99.118:/home/
 
 #sshpass -p "ibos@123" ssh -t StrictHostKeyChecking=no ibos@10.209.99.118 'echo "ibos@123" | sudo -S chmod 755 token.sh;sh token.sh'
 
-sshpass -p "ibos@123" ssh -t StrictHostKeyChecking=no ibos@10.209.99.118 'echo "ibos@123" | sudo -S git clone https://github.com/kausar3033/kubernetes-full-process.git&&cd kubernetes-full-process/&&chmod +x single2.sh&&sed -i 's/\r$//' single2.sh&&./single2.sh'
+ssh ibos@10.209.99.112 'echo "ibos@123" | sudo -S sh -c "git clone https://github.com/kausar3033/kubernetes-full-process.git && cd kubernetes-full-process/ && chmod +x single2.sh && sed -i '\''s/\r$//'\'' single2.sh && ./single2.sh"'
 kubectl get node
 kubectl get pods
 rm ~/.bash_history
