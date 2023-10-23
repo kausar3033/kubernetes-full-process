@@ -27,6 +27,3 @@ systemctl restart docker
 
 apt-get install -y apt-transport-https
 apt-get install -qy kubelet=1.28.2-00 kubeadm=1.28.2-00 kubectl=1.28.2-00
-
-chmod 755 token.sh
-sh token.sh
