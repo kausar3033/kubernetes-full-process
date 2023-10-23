@@ -1,6 +1,6 @@
-
+set -x
+export KUBECONFIG=/path/to/config
 apt-get install -y curl openssh-server
-
 
 echo $(hostname -i) $(hostname) >> /etc/hosts
 sudo sed -i "/swap/s/^/#/" /etc/fstab
