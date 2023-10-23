@@ -17,6 +17,12 @@
 #### FOR EASY Installation we have sh file. Just clone the git repo in master node by run the command
 
      git clone https://github.com/kausar3033/kubernetes-full-process.git&&cd kubernetes-full-process/&&chmod +x master.sh&&./master.sh
+
+# FOR EASY Installation Master Node and worker Single command(example file)
+    git clone https://github.com/kausar3033/kubernetes-full-process.git&&cd kubernetes-full-process/&&chmod +x single.sh&&./single.sh
+    git clone https://github.com/kausar3033/kubernetes-full-process.git&&cd kubernetes-full-process/&&chmod +x single2.sh&&./single2.sh
+# Main script 
+    sshpass -p "ibos@123" ssh -t StrictHostKeyChecking=no ibos@masterIP 'echo "ibos@123" | sudo -S git clone https://github.com/kausar3033/kubernetes-full-process.git&&cd kubernetes-full-process/&&chmod +x single.sh&&./single.sh'
   
 #### FOR EASY Installation we have sh file. Just clone the git repo in worker node by run the command
   
