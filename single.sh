@@ -52,15 +52,12 @@ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documen
 
 kubeadm token create --print-join-command >> token.sh
 
-##metallb
 
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.12.1/manifests/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.12.1/manifests/metallb.yaml
 echo -e "apiVersion: v1\nkind: ConfigMap\nmetadata:\n  namespace: metallb-system\n  name: config\ndata:\n  config: |\n    address-pools:\n    - name: default\n      protocol: layer2\n      addresses:\n      - 10.209.99.107-10.209.99.108" >> metallb-configmap.yaml
 chmod +x metallb-configmap.yaml
 kubectl apply -f metallb-configmap.yaml
-
-#Helm
 
 curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
 sudo apt-get install apt-transport-https --yes
@@ -82,8 +79,6 @@ helm -n staging install ibosio-ingress nginx-stable/nginx-ingress --set controll
 kubectl -n staging get all 
 kubectl get svc
 kubectl get pods
-
-#tls
 
 echo -e "-----BEGIN CERTIFICATE-----
 MIIGEzCCA/ugAwIBAgIQfVtRJrR2uhHbdBYLvFMNpzANBgkqhkiG9w0BAQwFADCB
@@ -215,7 +210,13 @@ chmod +x ibos_ingress.yaml
 kubectl -n staging apply -f ibos_ingress.yaml
 
 kubectl -n staging create secret docker-registry dockercred --docker-server=https://index.docker.io --docker-username=iboslimitedbd --docker-password=iBOS@ltd21 --docker-email=iboslimitedbd@gmail.com
+kubectl get node
+kubectl get pods
 
-sshpass -p "ibos@123" sftp ibos@10.209.99.118
+sshpass -p "ibos@123" sftp -o StrictHostKeyChecking=no ibos@10.209.99.118:/home/ibos/ <<< "put /home/ibos/token.sh"
+
+
+#sshpass -p "ibos@123" ssh -t StrictHostKeyChecking=no ibos@10.209.99.118 'echo "ibos@123" | sudo -S chmod 755 token.sh;sh token.sh'
+
 
 
