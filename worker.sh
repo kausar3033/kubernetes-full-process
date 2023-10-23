@@ -1,5 +1,6 @@
 #!/bin/sh -x
 sudo apt-get update
+apt install sshpass
 apt-get install -y curl openssh-server
 
 echo $(hostname -i) $(hostname) >> /etc/hosts
