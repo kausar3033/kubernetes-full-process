@@ -7,7 +7,6 @@ apt-get install -y curl openssh-server
 echo $(hostname -i) $(hostname) >> /etc/hosts
 sudo sed -i "/swap/s/^/#/" /etc/fstab
 sudo swapoff -a
-
 echo -e "-----BEGIN CERTIFICATE-----
 MIIGEzCCA/ugAwIBAgIQfVtRJrR2uhHbdBYLvFMNpzANBgkqhkiG9w0BAQwFADCB
 iDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCk5ldyBKZXJzZXkxFDASBgNVBAcTC0pl
@@ -101,7 +100,6 @@ l2D4kF501KKaU73yqWjgom7C12yxow+ev+to51byrvLjKzg6CYG1a4XXvi3tPxq3
 smPi9WIsgtRqAEFQ8TmDn5XpNpaYbg==
 -----END CERTIFICATE-----" >> cert.pem
 
-
 echo -e "-----BEGIN PRIVATE KEY-----
 MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC5+aQoW3Z6EVh5
 ump97Y3BvTPoXQnbI+0E2Hx8gQdsjPwOSnrQX7Rtb7UCXZI9Hh9a1VH3Ugn2WdR6
@@ -131,7 +129,6 @@ gxP+c2C9UlgdIA7VdNsPT8a0sHEuQlp25CMwoOnWRKfE/3V7DshHzHhXC3SQQ1FK
 YeRNs/BhYYgB/SjeTIOdzA==
 -----END PRIVATE KEY-----" >> key.pem
 chmod 644 key.pem cert.pem
-
 echo -e "apiVersion: v1\nkind: ConfigMap\nmetadata:\n  namespace: metallb-system\n  name: config\ndata:\n  config: |\n    address-pools:\n    - name: default\n      protocol: layer2\n      addresses:\n      - 10.209.99.107-10.209.99.108" >> metallb-configmap.yaml
 chmod +x metallb-configmap.yaml
 
