@@ -127,14 +127,72 @@ EOL
 
 chmod 644 key.pem cert.pem
 
-echo -e 'apiVersion: v1\nkind: ConfigMap\nmetadata:\n  namespace: metallb-system\n  name: config\ndata:\n  config: |\n    address-pools:\n    - name: default\n      protocol: layer2\n      addresses:\n      - 10.209.99.107-10.209.99.108' > metallb-configmap.yaml
+cat <<EOL >> metallb-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metallb-system
+  name: config
+data:
+  config: |
+    address-pools:
+    - name: default
+      protocol: layer2
+      addresses:
+      - 10.209.99.107-10.209.99.108
+EOL
+
 chmod +x metallb-configmap.yaml
 
-echo -e 'apiVersion: networking.k8s.io/v1\nkind: Ingress\nmetadata:\n  annotations:\n    nginx.ingress.kubernetes.io/ssl-redirect: "true"\n    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"\n    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"\n    nginx.ingress.kubernetes.io/proxy-body-size: "0"\n     \n  name: ing-ibosapp\nspec:\n  ingressClassName: ibosio-ingress\n  rules:\n    #madina.ibos.local\n    - host: test.ibos.io\n      http:\n        paths:\n          - pathType: Prefix\n            path: /\n            backend:\n              service:\n                name: front\n                port:\n                  number: 80\n          - pathType: Prefix\n            path: /identity\n            backend:\n              service:\n                name: identity\n                port:\n                  number: 80\n          - pathType: Prefix\n            path: /vat\n            backend:\n              service:\n                name: vatapi\n                port:\n                  number: 80\n\n\n\n  tls:\n    - hosts:\n        - test.ibos.io\n       \n\n      secretName: ibosio-ingress-tls' > ibos_ingress.yaml
+cat <<EOL >> ibos_ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+     
+  name: ing-ibosapp
+spec:
+  ingressClassName: ibosio-ingress
+  rules:
+    #madina.ibos.local
+    - host: test.ibos.io
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: front
+                port:
+                  number: 80
+          - pathType: Prefix
+            path: /identity
+            backend:
+              service:
+                name: identity
+                port:
+                  number: 80
+          - pathType: Prefix
+            path: /vat
+            backend:
+              service:
+                name: vatapi
+                port:
+                  number: 80
+
+
+
+  tls:
+    - hosts:
+        - test.ibos.io
+       
+
+      secretName: ibosio-ingress-tls
+EOL
+
 chmod +x ibos_ingress.yaml
-
-
-
-
-
 
