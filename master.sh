@@ -29,7 +29,7 @@ systemctl daemon-reload
 systemctl restart docker
 
 apt-get install -y apt-transport-https
-apt-get install -qy kubelet kubeadm kubectl
+apt-get install -qy kubelet==1.25.3-00 kubeadm==1.25.3-00 kubectl==1.25.3-00
 
 apt-mark hold docker.io kubelet kubeadm kubectl
 
@@ -42,7 +42,7 @@ if [ "$UBUNTU_CODENAME" = "bionic" ]; then
 fi
 sysctl net.bridge.bridge-nf-call-iptables=1
 
-sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors=all
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
