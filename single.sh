@@ -92,7 +92,7 @@ Rt0vxuBqw8M0Ayx9lt1awg6nCpnBBYurDC/zXDrPbDdVCYfeU0BsWO/8tqtlbgT2
 G9w84FoVxp7Z8VlIMCFlA2zs6SFz7JsDoeA3raAVGI/6ugLOpyypEBMs1OUIJqsi
 l2D4kF501KKaU73yqWjgom7C12yxow+ev+to51byrvLjKzg6CYG1a4XXvi3tPxq3
 smPi9WIsgtRqAEFQ8TmDn5XpNpaYbg==
------END CERTIFICATE-----' >> cert.pem
+-----END CERTIFICATE-----' > cert.pem
 
 echo -e '-----BEGIN PRIVATE KEY-----
 MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC5+aQoW3Z6EVh5
@@ -121,12 +121,16 @@ P4Rv8an3a8kgb6+xO9T+sLKlUAkGKk3Bp0yBQQECgYATrNIEMLMAoBtv8GRoSaFa
 mQBrQV8difAYM+yRddIEC2kIjB85ztbOL+freDZqcFZiG4MKjL27L+hI9cNaKGVa
 gxP+c2C9UlgdIA7VdNsPT8a0sHEuQlp25CMwoOnWRKfE/3V7DshHzHhXC3SQQ1FK
 YeRNs/BhYYgB/SjeTIOdzA==
------END PRIVATE KEY-----' >> key.pem
+-----END PRIVATE KEY-----' > key.pem
 chmod 644 key.pem cert.pem
 
-echo -e 'apiVersion: v1\nkind: ConfigMap\nmetadata:\n  namespace: metallb-system\n  name: config\ndata:\n  config: |\n    address-pools:\n    - name: default\n      protocol: layer2\n      addresses:\n      - 10.209.99.107-10.209.99.108' >> metallb-configmap.yaml
+echo -e 'apiVersion: v1\nkind: ConfigMap\nmetadata:\n  namespace: metallb-system\n  name: config\ndata:\n  config: |\n    address-pools:\n    - name: default\n      protocol: layer2\n      addresses:\n      - 10.209.99.107-10.209.99.108' > metallb-configmap.yaml
 chmod +x metallb-configmap.yaml
 
-echo -e 'apiVersion: networking.k8s.io/v1\nkind: Ingress\nmetadata:\n  annotations:\n    nginx.ingress.kubernetes.io/ssl-redirect: "true"\n    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"\n    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"\n    nginx.ingress.kubernetes.io/proxy-body-size: "0"\n     \n  name: ing-ibosapp\nspec:\n  ingressClassName: ibosio-ingress\n  rules:\n    #madina.ibos.local\n    - host: test.ibos.io\n      http:\n        paths:\n          - pathType: Prefix\n            path: /\n            backend:\n              service:\n                name: front\n                port:\n                  number: 80\n          - pathType: Prefix\n            path: /identity\n            backend:\n              service:\n                name: identity\n                port:\n                  number: 80\n          - pathType: Prefix\n            path: /vat\n            backend:\n              service:\n                name: vatapi\n                port:\n                  number: 80\n\n\n\n  tls:\n    - hosts:\n        - test.ibos.io\n       \n\n      secretName: ibosio-ingress-tls' >> ibos_ingress.yaml
+echo -e 'apiVersion: networking.k8s.io/v1\nkind: Ingress\nmetadata:\n  annotations:\n    nginx.ingress.kubernetes.io/ssl-redirect: "true"\n    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"\n    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"\n    nginx.ingress.kubernetes.io/proxy-body-size: "0"\n     \n  name: ing-ibosapp\nspec:\n  ingressClassName: ibosio-ingress\n  rules:\n    #madina.ibos.local\n    - host: test.ibos.io\n      http:\n        paths:\n          - pathType: Prefix\n            path: /\n            backend:\n              service:\n                name: front\n                port:\n                  number: 80\n          - pathType: Prefix\n            path: /identity\n            backend:\n              service:\n                name: identity\n                port:\n                  number: 80\n          - pathType: Prefix\n            path: /vat\n            backend:\n              service:\n                name: vatapi\n                port:\n                  number: 80\n\n\n\n  tls:\n    - hosts:\n        - test.ibos.io\n       \n\n      secretName: ibosio-ingress-tls' > ibos_ingress.yaml
 chmod +x ibos_ingress.yaml
+
+
+
+
 
