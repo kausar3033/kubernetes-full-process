@@ -76,9 +76,8 @@ sudo apt-get install apt-transport-https --yes
 echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
 sudo apt-get update
 sudo apt-get install helm
-
 helm -n staging repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-helm -n staging repo add  stable https://charts.helm.sh/stable	
+helm -n staging repo add  stable https://charts.helm.sh/stable
 helm repo add nginx-stable https://helm.nginx.com/stable
 helm -n staging  repo update
 helm -n staging  repo list
@@ -87,7 +86,8 @@ kubectl get ns
 kubectl create namespace staging
 kubectl run nginx --image=nginx --namespace=staging
 kubectl config set-context --current --namespace=staging
-helm -n staging install ibosio-ingress nginx-stable/nginx-ingress --set controller.service.type=LoadBalancer,controller.ingressClass=ibosio-ingress
+helm -n staging install ibosio-ingress nginx-stable/nginx-ingress --set controller.service.type=LoadBalancer,controller.ingressClass=ibosio-ingress --set controller.service.loadBalancerIP="10.209.99.107"
+#helm -n staging install ibosio-ingress nginx-stable/nginx-ingress --set controller.service.type=LoadBalancer,controller.ingressClass=ibosio-ingress
 kubectl -n staging get all 	
 kubectl get svc
 
@@ -282,7 +282,7 @@ sshpass -p "ibos@123" sftp -o StrictHostKeyChecking=no ibos@10.209.99.110:/home/
 
 rm ~/.bash_history
 history -c
-sshpass -p "ibos@123" ssh -o StrictHostKeyChecking=no ibos@10.209.99.110 'echo "ibos@123" | sudo -S sh -c "git clone https://github.com/kausar3033/kubernetes-full-process.git && cd kubernetes-full-process/ && chmod +x single2.sh && sed -i '\''s/\r$//'\'' single2.sh && mv single2.sh /home/ibos && cd /home/ibos && ./single2.sh"'
+sshpass -p "ibos@123" ssh -o StrictHostKeyChecking=no ibos@10.209.99.120 'echo "ibos@123" | sudo -S sh -c "git clone https://github.com/kausar3033/kubernetes-full-process.git && cd kubernetes-full-process/ && chmod +x single2.sh && sed -i '\''s/\r$//'\'' single2.sh && mv single2.sh /home/ibos && cd /home/ibos && ./single2.sh"'
 
 kubectl get node
 kubectl get pods
