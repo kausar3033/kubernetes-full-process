@@ -52,6 +52,7 @@ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documen
 
 kubeadm token create --print-join-command >> token.sh
 
+sshpass -p "ibos@123" sftp -o StrictHostKeyChecking=no ibos@10.209.99.118:/home/ibos/ <<< "put /home/ibos/token.sh"
 
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.12.1/manifests/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.12.1/manifests/metallb.yaml
@@ -217,12 +218,9 @@ rm -rf kubernetes-full-process
 rm ~/.bash_history
 history -c
 
-
-sshpass -p "ibos@123" sftp -o StrictHostKeyChecking=no ibos@10.209.99.118:/home/ibos/ <<< "put /home/ibos/token.sh"
-
 #sshpass -p "ibos@123" ssh -t StrictHostKeyChecking=no ibos@10.209.99.118 'echo "ibos@123" | sudo -S chmod 755 token.sh;sh token.sh'
 
-ssh ibos@10.209.99.110 'echo "ibos@123" | sudo -S sh -c "git clone https://github.com/kausar3033/kubernetes-full-process.git && cd kubernetes-full-process/ && chmod +x single2.sh && sed -i '\''s/\r$//'\'' single2.sh && ./single2.sh"'
+sshpass -p "ibos@123" ssh -o StrictHostKeyChecking=no ibos@10.209.99.110 'echo "pass" | sudo -S sh -c "git clone https://github.com/kausar3033/kubernetes-full-process.git && cd kubernetes-full-process/ && chmod +x single2.sh && sed -i '\''s/\r$//'\'' single2.sh && mv single2.sh /home/ibos && cd /home/ibos && ./single2.sh"'
 kubectl get node
 kubectl get pods
 rm ~/.bash_history
