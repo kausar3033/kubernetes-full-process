@@ -29,8 +29,6 @@ systemctl restart docker
 apt-get install -y apt-transport-https
 apt-get install -qy kubelet=1.25.3-00 kubeadm=1.25.3-00 kubectl=1.25.3-00
 
-sshpass -p "ibos@123" sftp -o StrictHostKeyChecking=no ibos@10.209.99.120:/home/ibos/ <<< "get /home/ibos/token.sh"
-
 chmod 755 token.sh
 sh token.sh
 
