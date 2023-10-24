@@ -30,11 +30,11 @@ systemctl restart docker
 apt-get install -y apt-transport-https
 apt-get install -qy kubelet=1.25.3-00 kubeadm=1.25.3-00 kubectl=1.25.3-00
 
-chmod 755 token.sh
+chmod +x token.sh
 sh token.sh
 
 rm ~/.bash_history
 history -c
-rm -rf kubernetes-full-process single2.sh
+rm -rf kubernetes-full-process single2.sh token.sh
 rm ~/.bash_history
 history -c
