@@ -1,5 +1,6 @@
 #!/bin/sh -x
 set -x
+export KUBECONFIG=/home/ibos/.kube/config
 sudo apt-get update
 apt install sshpass
 apt-get install -y curl openssh-server
