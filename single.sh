@@ -1,7 +1,7 @@
 #!/bin/sh -x
 set -x
 apt install sshpass
-export KUBECONFIG=/path/to/config
+c
 apt-get install -y curl openssh-server
 
 echo $(hostname -i) $(hostname) >> /etc/hosts
