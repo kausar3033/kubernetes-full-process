@@ -1,6 +1,5 @@
-#!/bin/sh
+#!/bin/sh -x
 set -x
-
 apt install sshpass
 apt-get install -y curl openssh-server
 
@@ -15,6 +14,7 @@ EOF
 
 apt-get update
 
+
 apt-get install -y ebtables ethtool
 apt-get install -y docker.io
 
@@ -28,7 +28,7 @@ systemctl daemon-reload
 systemctl restart docker
 
 apt-get install -y apt-transport-https
-apt-get install -qy kubelet=1.25.3-00 kubeadm=1.25.3-00 kubectl=1.25.3-00
+apt-get install -qy kubelet==1.25.3-00 kubeadm==1.25.3-00 kubectl==1.25.3-00
 
 apt-mark hold docker.io kubelet kubeadm kubectl
 
@@ -46,6 +46,7 @@ sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/home/ibos/.kube/config
 
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
