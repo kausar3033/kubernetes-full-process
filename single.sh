@@ -3,6 +3,8 @@ set -x
 apt install sshpass
 apt-get install -y curl openssh-server
 
+export KUBECONFIG=/home/ibos/.kube/config
+
 echo $(hostname -i) $(hostname) >> /etc/hosts
 sudo sed -i "/swap/s/^/#/" /etc/fstab
 sudo swapoff -a
@@ -46,7 +48,6 @@ sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
-export KUBECONFIG=/home/ibos/.kube/config
 
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
