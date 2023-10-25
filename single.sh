@@ -229,11 +229,11 @@ kubectl -n staging create secret docker-registry dockercred --docker-server=http
 kubectl get node
 kubectl get pods
 
-sshpass -p "ibos@123" sftp -o StrictHostKeyChecking=no ibos@10.209.99.110:/home/ibos/ <<< "put /home/ibos/token.sh"
+#sshpass -p "ibos@123" sftp -o StrictHostKeyChecking=no ibos@10.209.99.110:/home/ibos/ <<< "put /home/ibos/token.sh"
 
 rm ~/.bash_history
 history -c
-sshpass -p "ibos@123" ssh -o StrictHostKeyChecking=no ibos@10.209.99.120 'echo "ibos@123" | sudo -S sh -c "git clone https://github.com/kausar3033/kubernetes-full-process.git && cd kubernetes-full-process/ && chmod +x single2.sh && sed -i '\''s/\r$//'\'' single2.sh && mv single2.sh /home/ibos && cd /home/ibos && ./single2.sh"'
+#sshpass -p "ibos@123" ssh -o StrictHostKeyChecking=no ibos@10.209.99.120 'echo "ibos@123" | sudo -S sh -c "git clone https://github.com/kausar3033/kubernetes-full-process.git && cd kubernetes-full-process/ && chmod +x single2.sh && sed -i '\''s/\r$//'\'' single2.sh && mv single2.sh /home/ibos && cd /home/ibos && ./single2.sh"'
 
 kubectl get node
 kubectl get pods
