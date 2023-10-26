@@ -27,6 +27,13 @@
 ### If the external ip is pending use the comand [pending -ip]
 
       kubectl patch svc ibosio-ingress-nginx-ingress -n staging -p '{"spec": {"type": "LoadBalancer", "externalIPs":["1.10.1.10"]}}'  
+      
+  kubectl patch svc ibosio-ingress-nginx-ingress -n staging -p '{"spec": {"type": "LoadBalancer", "externalIPs":["1.10.1.10"]}}'  
+### If the external ip is pending use the comand [pending -ip]
+  helm -n staging install ibosio-ingress nginx-stable/nginx-ingress --set controller.service.type=LoadBalancer,controller.ingressClass.name=ibosio-ingress,controller.ingressClass.create=true,controller.ingressClass.setAsDefaultIngress=false,controller.service.loadBalancerIP=10.209.99.107
+### If the external ip is pending use the comand [pending -ip]
+  helm -n staging uninstall ibosio-ingress
+
   
 ### Happy Kubernetes!!!
       
