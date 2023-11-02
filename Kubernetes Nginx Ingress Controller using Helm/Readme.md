@@ -16,11 +16,11 @@
 	helm -n staging install ibosio-ingress nginx-stable/nginx-ingress --set controller.service.type=LoadBalancer,controller.ingressClass=ibosio-ingress
 
 ## if not working 
- helm -n staging install ibosio-ingress-new nginx-stable/nginx-ingress \
- --set controller.service.type=LoadBalancer \
- --set controller.ingressClass.name=ibosio-ingress \
- --set controller.ingressClass.create=true \
- --set controller.ingressClass.setAsDefaultIngress=false
+     helm -n staging install ibosio-ingress-new nginx-stable/nginx-ingress \
+  	--set controller.service.type=LoadBalancer \
+  	--set controller.ingressClass.name=ibosio-ingress \
+  	--set controller.ingressClass.create=true \
+  	--set controller.ingressClass.setAsDefaultIngress=false
 
 ### Check status of all resources iningress-nginx namespace:
 	kubectl -n staging get all 	
