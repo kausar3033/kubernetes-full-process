@@ -2,7 +2,7 @@
 sudo apt-get update
 apt install sshpass
 apt-get install -y curl openssh-server
-
+export KUBECONFIG=/etc/kubernetes/admin.conf
 echo $(hostname -i) $(hostname) >> /etc/hosts
 sudo sed -i "/swap/s/^/#/" /etc/fstab
 sudo swapoff -a
