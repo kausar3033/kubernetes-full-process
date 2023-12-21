@@ -1,0 +1,81 @@
+swapoff -a
+sed -i '/ swap / s/^/#/' /etc/fstab
+
+## Update the /etc/hosts File for Hostname Resolution
+Setting up host names is not enough. We have to map hostnames to their IP addresses as well. 
+You should update the /etc/hosts file of all nodes(or at least of the master node), as shown below. 
+(Remember that you have to use the IP addresses of your nodes. I have only given holder values.) 
+You can open the host's file for editing with the command 
+
+## for both node
+vi /etc/hosts
+10.209.99.150 k8s-master
+10.209.99.152 k8s-worker1
+
+## Set up the IPV4 bridge on all nodes
+To configure the IPV4 bridge on all nodes, execute the following commands on each node.
+
+cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
+overlay
+br_netfilter
+EOF
+
+sudo modprobe overlay
+sudo modprobe br_netfilter
+
+# sysctl params required by setup, params persist across reboots
+cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-iptables  = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+net.ipv4.ip_forward                 = 1
+EOF
+
+# Apply sysctl params without reboot
+sudo sysctl --system
+
+sudo apt-get update
+
+## Next, we have to ensure that we can download and install packages from the internet securely.
+sudo apt-get install -y apt-transport-https ca-certificates curl
+
+
+## Let’s fetch the public key from Google and store it in the folder we created in the previous step. 
+This key is important to verify that the Kubernetes packages we download are genuine and haven't been tampered with.
+
+curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
+
+## Next, we need to tell the apt package manager where to find Kubernetes packages for downloading.
+
+echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+sudo apt-get update
+
+apt-get update
+
+## Now we are ready to install kubelet, kubeadm, and kubectl by running the 
+
+apt install -y kubelet=1.28.0-00 kubeadm=1.28.0-00 kubectl=1.28.0-00
+
+## Install Docker
+apt install docker.io
+mkdir /etc/containerd
+
+## Then, create a default configuration file for containerd and save it as config.toml using the command
+sudo sh -c "containerd config default > /etc/containerd/config.toml"
+
+
+## After running these commands, you need to modify the config.toml file to locate the entry 
+that sets "SystemdCgroup" to false and changes its value to true. 
+This is important because Kubernetes requires all its components, 
+and the container runtime uses systemd for cgroups
+
+sudo sed -i 's/ SystemdCgroup = false/ SystemdCgroup = true/' /etc/containerd/config.toml
+
+
+## Next, restart containerd and kubelet services to apply the changes you made on all nodes.
+systemctl restart containerd.service
+systemctl restart kubelet.service
+systemctl enable kubelet.service
+
+## join command paste it to the worker node
+kubeadm join 10.209.99.150:6443 --token 4ohoxu.pmnnk0gmtffta1rk         --discovery-token-ca-cert-hash sha256:859ac308bf59b59ac3a344799e840cc8b8651e8fa5453f9da23f0685ada550ee
