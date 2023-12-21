@@ -41,7 +41,7 @@ if [ "$UBUNTU_CODENAME" = "bionic" ]; then
 fi
 sysctl net.bridge.bridge-nf-call-iptables=1
 
-sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors=all
 
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
